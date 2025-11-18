@@ -3,7 +3,7 @@ const ObjectId = require("mongodb").ObjectId;
 
 // GET all contacts
 const getAllCourses = async (req, res) => {
-  //#swagger.tags=["Contacts"]
+  //#swagger.tags=["Courses"]
   try {
     const db = mongodb.getDb();
     const result = await db.collection("courses").find().toArray();
@@ -16,7 +16,7 @@ const getAllCourses = async (req, res) => {
 
 // GET student single contact by ID
 const getCourse = async (req, res) => {
-  //#swagger.tags=["Contacts"]
+  //#swagger.tags=["Courses"]
   try {
     const contactId = new ObjectId(req.params.id);
     const db = mongodb.getDb();
@@ -33,7 +33,7 @@ const getCourse = async (req, res) => {
 
 // Create a new course contact
 const createCourse = async (req, res) => {
-  //#swagger.tags=["Contacts"]
+  //#swagger.tags=["Courses"]
   try {
     const contact = {
       courseCode: req.body.courseCode,
@@ -59,7 +59,7 @@ const createCourse = async (req, res) => {
 
 // Update students data
 const updateCourse = async (req, res) => {
-  //#swagger.tags=["Contacts"]
+  //#swagger.tags=["Courses"]
   try {
     const userId = new ObjectId(req.params.id);
     const course = {
@@ -86,7 +86,7 @@ const updateCourse = async (req, res) => {
 
 // Delete a student record
 const deleteCourse = async (req, res) => {
-  //#swagger.tags=["Contacts"]
+  //#swagger.tags=["Courses"]
   try {
     const userId = new ObjectId(req.params.id);
     const db = mongodb.getDb();
