@@ -31,7 +31,7 @@ const getCourse = async (req, res) => {
   }
 };
 
-// // Create a new student contact
+// Create a new course contact
 const createCourse = async (req, res) => {
   //#swagger.tags=["Contacts"]
   try {
