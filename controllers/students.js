@@ -72,9 +72,9 @@ const updateStudent = async (req, res) => {
     };
 
     const db = mongodb.getDb();
-    const response = await db.collection("Students").replaceOne({ _id: userId }, student);
+    const response = await db.collection("Students").updateOne({ _id: userId }, student);
 
-    if (response.modifiedCount > 0) {
+    if (response.matchedCount === 0) {
       res.status(204).send();
     } else {
       res.status(404).json({ message: "Contact not found." });

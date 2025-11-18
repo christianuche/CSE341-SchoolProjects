@@ -72,12 +72,12 @@ const updateCourse = async (req, res) => {
     };
 
     const db = mongodb.getDb();
-    const response = await db.collection("courses").replaceOne({ _id: userId }, course);
+    const response = await db.collection("courses").updateOne({ _id: userId }, course);
 
-    if (response.modifiedCount > 0) {
+    if (response.matchedCount === 0) {
       res.status(204).send();
     } else {
-      res.status(404).json({ message: "Contact not found." });
+      res.status(404).json({ message: "Courses not found." });
     } 
     } catch (err) {
     res.status(500).json({ message: err.message });
