@@ -32,7 +32,9 @@ app
     res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
     next();
   })
-  .use("/", require("./routes"));
+  .use(cors({ method: ["GET", "POST", "DELETE", "UPDATE", "PUT", "PATCH"] }))
+  .use(cors({ origin: "*" }))
+  .use("/", require("./routes/index.js"));
 
 
 // ========== GITHUB PASSPORT STRATEGY ==========
@@ -63,32 +65,33 @@ passport.deserializeUser((user, done) => {
 app.get("/", (req, res) => {
   res.send(
     req.session.user
+      !== undefined
       ? `Logged in as ${req.session.user.displayName}`
       : "Logged out"
   );
 });
 
-// GITHUB LOGIN
-app.get("/login", passport.authenticate("github"));
+// // GITHUB LOGIN
+// app.get("/login", passport.authenticate("github"));
 
 // GITHUB CALLBACK
 app.get(
   "/github/callback",
-  passport.authenticate("github", { failureRedirect: "/api-docs" }),
-  (req, res) => {
+  passport.authenticate("github", { 
+    failureRedirect: "/api-docs" }),
+    (req, res) => {
     req.session.user = req.user;
     res.redirect("/");
-  }
-);
-
-// LOGOUT
-app.get("/logout", (req, res, next) => {
-  req.logout(function (err) {
-    if (err) return next(err);
-    req.session.destroy();
-    res.redirect("/");
   });
-});
+
+// // LOGOUT
+// app.get("/logout", (req, res, next) => {
+//   req.logout(function (err) {
+//     if (err) return next(err);
+//     req.session.destroy();
+//     res.redirect("/");
+//   });
+// });
 
 // ========== START SERVER ==========
 mongodb.initDb((err) => {

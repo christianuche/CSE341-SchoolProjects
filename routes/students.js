@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const studentController = require("../controllers/students");
 //const validate = require("../middleware/validate");
-const isAuthenticated = require("../middleware/auth");
+const {isAuthenticated} = require("../middleware/auth");
 
 router.get("/", studentController.getAllStudents);
 router.get("/:id", studentController.getStudent);
