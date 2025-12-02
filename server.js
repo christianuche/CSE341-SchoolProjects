@@ -71,9 +71,6 @@ app.get("/", (req, res) => {
   );
 });
 
-// // GITHUB LOGIN
-// app.get("/login", passport.authenticate("github"));
-
 // GITHUB CALLBACK
 app.get(
   "/github/callback",
@@ -83,15 +80,6 @@ app.get(
     req.session.user = req.user;
     res.redirect("/");
   });
-
-// // LOGOUT
-// app.get("/logout", (req, res, next) => {
-//   req.logout(function (err) {
-//     if (err) return next(err);
-//     req.session.destroy();
-//     res.redirect("/");
-//   });
-// });
 
 // ========== START SERVER ==========
 mongodb.initDb((err) => {
