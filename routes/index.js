@@ -4,13 +4,15 @@ const passport = require("passport");
 // ---------------------------
 // Swagger Documentation Route
 // ---------------------------
-router.use("/api-docs", require("./swagger"));  // <-- FIX: put swagger under /api-docs
+router.use("/api-docs", require("./swagger")); 
 
 // ---------------------------
 // API Routes
 // ---------------------------
 router.use("/students", require("./students"));
 router.use("/courses", require("./courses"));
+router.use("/department", require("./departments"));
+router.use("/teachers", require("./teachers"));
 
 // ---------------------------
 // Authentication Routes

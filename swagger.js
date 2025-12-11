@@ -3,7 +3,7 @@ const swaggerAutogen = require("swagger-autogen")();
 const doc = {
   info: {
     title: "School API",
-    description: "API documentation for students & courses"
+    description: "API documentation for Students, Teachers, Departments, and Courses",
   },
   host: "localhost:3000",
   schemes: ["http"],

@@ -1,8 +1,8 @@
-{
+ {
   "swagger": "2.0",
   "info": {
     "title": "School API",
-    "description": "API documentation for students & courses",
+    "description": "API documentation for Students, Teachers, Departments, and Courses",
     "version": "1.0.0"
   },
   "host": "cse341-schoolprojects.onrender.com",
@@ -371,6 +371,374 @@
       "delete": {
         "tags": [
           "Courses"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/department/": {
+      "get": {
+        "tags": [
+          "Departments"
+        ],
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Departments"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "departmentName": {
+                  "example": "any"
+                },
+                "departmentCode": {
+                  "example": "any"
+                },
+                "faculty": {
+                  "example": "any"
+                },
+                "headOfDepartment": {
+                  "example": "any"
+                },
+                "officeLocation": {
+                  "example": "any"
+                },
+                "phone": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                },
+                "description": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/department/{id}": {
+      "get": {
+        "tags": [
+          "Departments"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Departments"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "departmentName": {
+                  "example": "any"
+                },
+                "departmentCode": {
+                  "example": "any"
+                },
+                "faculty": {
+                  "example": "any"
+                },
+                "headOfDepartment": {
+                  "example": "any"
+                },
+                "officeLocation": {
+                  "example": "any"
+                },
+                "phone": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                },
+                "description": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Departments"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/teachers/": {
+      "get": {
+        "tags": [
+          "Teachers"
+        ],
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Teachers"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "firstName": {
+                  "example": "any"
+                },
+                "lastName": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                },
+                "department": {
+                  "example": "any"
+                },
+                "office": {
+                  "example": "any"
+                },
+                "hireDate": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/teachers/{id}": {
+      "get": {
+        "tags": [
+          "Teachers"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Teachers"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "firstName": {
+                  "example": "any"
+                },
+                "lastName": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                },
+                "department": {
+                  "example": "any"
+                },
+                "office": {
+                  "example": "any"
+                },
+                "hireDate": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Teachers"
         ],
         "description": "",
         "parameters": [

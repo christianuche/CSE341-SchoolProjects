@@ -64,7 +64,6 @@ const createStudent = async (req, res) => {
   //#swagger.tags=["Students"]
   try {
     const { firstName, lastName, age, gender, email, birthday } = req.body;
-
     // Validation
     const validationError = validateStudent(req.body);
     if (validationError) {
